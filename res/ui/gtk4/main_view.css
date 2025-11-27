@@ -1,0 +1,26 @@
+#main_view {
+    border-left: solid 1px @background_secondary;
+}
+
+/*
+gridview child {
+    background-color: #ff0000;
+}
+
+gridview child:selected {
+    background-color: #ff00ff;
+}
+*/
+
+.ghost-default {
+    background-color: #aaaa00;
+}
+
+.ghost-off {
+    background-color: #aa0000;
+}
+
+.ghost-on {
+    background-color: #00aa00;
+}
+

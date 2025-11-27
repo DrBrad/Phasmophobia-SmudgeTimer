@@ -1,0 +1,8 @@
+[package]
+name = "smudge-timer"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+gtk4 = "0.9.6"
+rdev = "0.5"

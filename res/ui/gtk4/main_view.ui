@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<interface>
+    <requires lib="gtk+" version="4.0"/>
+
+    <object class="GtkBox" id="root">
+        <property name="name">main_view</property>
+        <property name="visible">True</property>
+        <property name="hexpand">True</property>
+        <property name="vexpand">True</property>
+        <property name="orientation">horizontal</property>
+
+        <child>
+            <object class="GtkBox" id="activity_pane">
+                <property name="visible">True</property>
+                <property name="orientation">vertical</property>
+
+                <child>
+                    <object class="GtkGridView" id="ghosts_grid">
+                        <property name="halign">fill</property>
+                        <property name="hexpand">true</property>
+                        <property name="vexpand">true</property>
+                    </object>
+                </child>
+
+                <child>
+                    <object class="GtkLabel" id="status">
+                        <property name="name">status</property>
+                        <property name="visible">True</property>
+                        <property name="label">Clean • No Timer</property>
+                    </object>
+                </child>
+            </object>
+        </child>
+    </object>
+</interface>
