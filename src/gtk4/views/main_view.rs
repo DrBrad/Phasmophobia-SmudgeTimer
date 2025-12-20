@@ -81,6 +81,10 @@ impl MainView {
                         .as_millis();
                         timer_running.store(true, Ordering::Relaxed);
                     }
+                    Key::Num1 => {
+                        timer_running.store(false, Ordering::Relaxed);
+                        time.set_label("00:00:00");
+                    }
                     Key::Equal => {
                         exit(0);
                     }
