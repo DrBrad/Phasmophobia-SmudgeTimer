@@ -19,7 +19,6 @@ impl App {
     }
 
     pub fn run(&self) {
-
         self.app.connect_activate(move |app| {
             if let Some(settings) = Settings::default() {
                 settings.set_property("gtk-application-prefer-dark-theme", &true);

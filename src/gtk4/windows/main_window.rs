@@ -3,7 +3,7 @@ use std::collections::HashMap;
 use std::process::exit;
 use std::rc::Rc;
 use gtk4::{gdk, style_context_add_provider_for_display, Application, ApplicationWindow, Builder, CssProvider, Stack, StackPage};
-use gtk4::prelude::{Cast, GtkWindowExt, ListModelExt, WidgetExt};
+use gtk4::prelude::{ApplicationWindowExt, Cast, GtkWindowExt, ListModelExt, WidgetExt};
 use crate::gtk4::views::inter::stackable::Stackable;
 use crate::gtk4::views::main_view::MainView;
 
