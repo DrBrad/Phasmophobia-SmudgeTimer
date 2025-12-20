@@ -48,6 +48,7 @@ impl MainView {
         let now = Rc::new(RefCell::new(0u128));
 
         let timer_event_listener = Some(RefCell::new(register_event("timer_event", {
+            let time = time.clone();
             let timer_running = Rc::clone(&timer_running);
             let now = Rc::clone(&now);
             move |event| {
@@ -64,6 +65,7 @@ impl MainView {
 
 
         let button_event_listener = Some(RefCell::new(register_event("button_event", {
+            let time = time.clone();
             move |event| {
                 let event = event.as_any().downcast_ref::<ButtonEvent>().unwrap();
 
