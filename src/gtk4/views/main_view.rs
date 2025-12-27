@@ -52,6 +52,7 @@ impl MainView {
         let obombo_timer_running = Rc::new(AtomicBool::new(false));
         let smudge_now = Rc::new(RefCell::new(0u128));
         let obombo_now = Rc::new(RefCell::new(0u128));
+        let mut obombo_state = Rc::new(RefCell::new(false));
 
         let timer_event_listener = Some(RefCell::new(register_event("timer_event", {
             let smudge = smudge.clone();
@@ -67,8 +68,14 @@ impl MainView {
                     smudge.set_label(&format!("{}", ms_to_hms(event.time - *smudge_now.borrow())));
                 }
 
-                if obombo_timer_running.load(Ordering::Relaxed) {
-                    obombo.set_label(&format!("{}", ms_to_hms(event.time - *obombo_now.borrow())));
+                if obombo_timer_running.load(Ordering::Relaxed) && (event.time - *obombo_now.borrow())/1000 % 120 == 0 {
+                    if *obombo_state.borrow() {
+                        *obombo_state.borrow_mut() = false;
+                        obombo.set_label("STATE 2");
+                    } else {
+                        *obombo_state.borrow_mut() = true;
+                        obombo.set_label("STATE 1");
+                    }
                 }
 
                 Continue
@@ -104,14 +111,14 @@ impl MainView {
                     }
                     Key::Num3 => {
                         obombo_timer_running.store(false, Ordering::Relaxed);
-                        obombo.set_label("00:00");
+                        obombo.set_label("NONE");
                     }
                     Key::Num5 => {
                         smudge_timer_running.store(false, Ordering::Relaxed);
                         smudge.set_label("00:00");
 
                         obombo_timer_running.store(false, Ordering::Relaxed);
-                        obombo.set_label("00:00");
+                        obombo.set_label("NONE");
                     }
                     Key::Equal => {
                         exit(0);

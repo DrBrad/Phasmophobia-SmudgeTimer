@@ -26,7 +26,7 @@
                     <object class="GtkLabel" id="obombo">
                         <property name="name">obombo</property>
                         <property name="visible">True</property>
-                        <property name="label">00:00</property>
+                        <property name="label">NONE</property>
                     </object>
                 </child>
             </object>
