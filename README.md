@@ -6,9 +6,9 @@ I have also added an Obambo timer so that when you open the house door you start
 In total this program will help with 4 ghosts.
 
 KeyBinds:
-|----|----|
 | Key  | Description |
-| \`    | Starts / Restarts smudge timer |
+|----|----|
+| \`   | Starts / Restarts smudge timer |
 | 1    | Reset smudge timer |
 | 2    | Starts / Restarts Obambo timer |
 | 3    | Reset Obambo timer |
