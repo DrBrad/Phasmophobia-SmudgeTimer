@@ -68,6 +68,7 @@ impl MainView {
             let obombo_timer_running = Rc::clone(&obombo_timer_running);
             let obombo_now = Rc::clone(&obombo_now);
             let obombo_state = Rc::clone(&obombo_state);
+
             move |event| {
                 let event = event.as_any().downcast_ref::<TimerEvent>().unwrap();
 
@@ -136,6 +137,7 @@ impl MainView {
                         *obombo_state.borrow_mut() = true;
                         obombo.set_label("NONE");
 
+                        tap_state.borrow_mut().reset();
                         bps.set_label("0.00 m/s");
                     }
                     Key::Num4 => {

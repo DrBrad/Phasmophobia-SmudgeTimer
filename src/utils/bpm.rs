@@ -45,8 +45,7 @@ impl TapState {
         // JS resets if gap > 5000ms since last tap :contentReference[oaicite:8]{index=8}
         if let Some(prev) = self.taps.last().copied() {
             if now.duration_since(prev) > RESET_GAP {
-                self.taps.clear();
-                self.start_ts = None;
+                self.reset();
             }
         }
 
@@ -117,5 +116,10 @@ impl TapState {
         let ms_display = round2(ms);
 
         Some((bpm_display, ms_display))
+    }
+
+    pub fn reset(&mut self) {
+        self.taps.clear();
+        self.start_ts = None;
     }
 }
