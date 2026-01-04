@@ -35,11 +35,6 @@ impl MainWindow {
 
         //window.set_border_width(1);
 
-
-        let root: gtk4::Box = builder
-            .object("root")
-            .expect("Failed to get the 'root' from window.ui");
-
         //window_content.add(&create_alertbar());
 
         let stack: Stack = builder

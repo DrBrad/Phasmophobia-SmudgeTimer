@@ -1,9 +1,7 @@
 use gtk4::{gdk, style_context_add_provider_for_display, Builder, ComboBoxText, CssProvider, Paned, ScrolledWindow};
-use gtk4::gdk::RGBA;
-use gtk4::prelude::{BoxExt, ComboBoxExt, ComboBoxExtManual, WidgetExt};
 
 pub struct ConsoleView {
-    pub root: Paned
+    pub root: gtk4::Box
 }
 
 impl ConsoleView {
@@ -15,7 +13,7 @@ impl ConsoleView {
         provider.load_from_resource("/smudgetimer/rust/res/ui/console_view.css");
         style_context_add_provider_for_display(&gdk::Display::default().unwrap(), &provider, gtk4::STYLE_PROVIDER_PRIORITY_APPLICATION);
 
-        let root: Paned = builder
+        let root: gtk4::Box = builder
             .object("root")
             .expect("Couldn't find 'root' in console_view.ui");
 

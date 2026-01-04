@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<interface domain="smudgetimer.rust">
+<interface>
     <requires lib="gtk+" version="4.0"/>
 
-    <object class="GtkBox" id="console_window">
-        <property name="name">console_window</property>
+    <object class="GtkBox" id="console_view">
+        <property name="name">console_view</property>
 
         <child>
             <object class="GtkBox" id="root">
