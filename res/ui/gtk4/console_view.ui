@@ -2,24 +2,30 @@
 <interface>
     <requires lib="gtk+" version="4.0"/>
 
-    <object class="GtkBox" id="console_view">
+    <object class="GtkBox" id="root">
         <property name="name">console_view</property>
+        <property name="visible">True</property>
+        <property name="orientation">vertical</property>
 
         <child>
-            <object class="GtkBox" id="root">
-                <property name="name">root</property>
+            <object class="GtkScrolledWindow" id="console_scroll_layout">
                 <property name="visible">True</property>
                 <property name="hexpand">True</property>
                 <property name="vexpand">True</property>
-                <property name="orientation">vertical</property>
+                <property name="overlay-scrolling">false</property>
+                <property name="hscrollbar-policy">automatic</property>
+                <property name="vscrollbar-policy">automatic</property>
+
 
                 <child>
-                    <object class="GtkStack" id="stack">
+                    <object class="GtkLabel" id="smudge">
+                        <property name="name">smudge</property>
                         <property name="visible">True</property>
-                        <property name="hexpand">True</property>
-                        <property name="vexpand">True</property>
+                        <property name="xalign">0.0</property>
+                        <property name="label">00:00.00</property>
                     </object>
                 </child>
+
             </object>
         </child>
     </object>

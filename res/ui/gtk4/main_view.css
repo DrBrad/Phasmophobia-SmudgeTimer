@@ -11,7 +11,7 @@ gridview child:selected {
 */
 
 #activity_pane {
-    padding: 0 10px 0 10px;
+    padding: 10px;
 }
 
 #smudge {
