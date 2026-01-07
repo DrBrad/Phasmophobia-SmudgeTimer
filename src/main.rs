@@ -3,6 +3,7 @@
 mod gtk4;
 mod bus;
 mod utils;
+mod settings;
 
 use std::thread;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};

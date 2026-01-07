@@ -31,7 +31,7 @@ impl ConsoleView {
             "75%",
             "100%",
             "125%",
-            "150%",
+            "150%"
         ];
 
         ghost_speed.set_format_value_func(|_, value| {
