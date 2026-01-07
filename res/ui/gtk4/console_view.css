@@ -33,8 +33,9 @@ scale slider {
     background-image: none;
 }
 
-scale:active slider {
+scale trough highlight {
     background-color: @primary;
     background-image: none;
+    opacity: 1.0;
 }
 
