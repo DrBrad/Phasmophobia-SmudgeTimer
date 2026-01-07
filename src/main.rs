@@ -18,7 +18,7 @@ use crate::gtk4::app::App;
 use crate::settings::load_settings;
 //export GTK_DEBUG=interactive
 
-//glib-compile-resources res/gtk4/linux.gresources.xml --target=res/resources.gresources
+//glib-compile-resources res/gtk4/windows.gresources.xml --target=res/resources.gresources
 
 /*
 rustup install nightly

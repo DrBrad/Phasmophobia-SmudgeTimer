@@ -28,11 +28,6 @@ pub unsafe fn load_settings() {
         let v = v.trim();
 
         match k {
-            "ghost_speed" => {
-                if let Ok(n) = v.parse::<usize>() {
-                    GHOST_SPEED = n;
-                }
-            }
             "key_timer_start" => KEY_TIMER_START = str_to_key(v),
             "key_timer_reset" => KEY_TIMER_RESET = str_to_key(v),
             "key_obambo_start" => KEY_OBAMBO_START = str_to_key(v),
@@ -51,14 +46,12 @@ pub unsafe fn save_settings() -> io::Result<()> {
     }
 
     let contents = format!(
-        "ghost_speed={}\n\
-             key_timer_start={:?}\n\
+        "key_timer_start={:?}\n\
              key_timer_reset={:?}\n\
              key_obambo_start={:?}\n\
              key_obambo_reset={:?}\n\
              key_ms={:?}\n\
              key_reset={:?}\n",
-        *&raw const GHOST_SPEED,
         *&raw const KEY_TIMER_START,
         *&raw const KEY_TIMER_RESET,
         *&raw const KEY_OBAMBO_START,

@@ -131,6 +131,7 @@ pub fn str_to_key(key: &str) -> Key {
         "ScrollLock" => Key::ScrollLock,
         "Pause" => Key::Pause,
         "NumLock" => Key::NumLock,
+        "BackQuote" => Key::BackQuote,
         "Num1" => Key::Num1,
         "Num2" => Key::Num2,
         "Num3" => Key::Num3,
