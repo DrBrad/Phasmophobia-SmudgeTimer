@@ -14,20 +14,21 @@ gridview child:selected {
     padding: 10px;
 }
 
-#smudge {
+#activity_pane #smudge {
     font-weight: bold;
     font-size: 50px;
+    color: @text_primary;
 }
 
-#obombo {
+#activity_pane #obombo {
     font-weight: bold;
     font-size: 20px;
-    color: gold;
+    color: @gold;
 }
 
-#bps {
+#activity_pane #bps {
     font-weight: bold;
     font-size: 20px;
-    color: mediumspringgreen;
+    color: @ghost_green;
 }
 

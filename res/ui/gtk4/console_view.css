@@ -2,3 +2,39 @@
     background-color: #00000080;
     border: solid 1px #666666;
 }
+
+#settings {
+    padding: 10px;
+}
+
+#settings #header {
+    font-weight: bold;
+    font-size: 20px;
+    color: @primary;
+}
+
+#settings #title {
+    font-size: 20px;
+    color: @text_primary;
+}
+
+#settings #description {
+    font-size: 16px;
+    color: @text_secondary;
+}
+
+scale trough {
+    background-color: @text_primary;
+    background-image: none;
+}
+
+scale slider {
+    background-color: @primary;
+    background-image: none;
+}
+
+scale:active slider {
+    background-color: @primary;
+    background-image: none;
+}
+
