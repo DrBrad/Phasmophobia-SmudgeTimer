@@ -14,7 +14,7 @@ impl ConsoleWindow {
         window.set_title(Some("SmudgeTimer"));
         window.set_default_size(1200, 700);
 
-        let view = ConsoleView::new();
+        let view = ConsoleView::new(&window);
 
         window.set_child(Some(&view.root));
         window.show();

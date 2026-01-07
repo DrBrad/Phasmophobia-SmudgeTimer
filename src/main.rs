@@ -1,10 +1,11 @@
-//#![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
+#![cfg_attr(target_os = "windows", windows_subsystem = "windows")]
 
 mod gtk4;
 mod bus;
 mod utils;
 mod settings;
 
+use std::path::PathBuf;
 use std::process::exit;
 use std::thread;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
@@ -14,7 +15,7 @@ use crate::bus::events::button_event::ButtonEvent;
 use crate::bus::events::inter::event::Event;
 use crate::bus::events::timer_event::TimerEvent;
 use crate::gtk4::app::App;
-use crate::gtk4::windows::console_window::ConsoleWindow;
+use crate::settings::load_settings;
 //export GTK_DEBUG=interactive
 
 //glib-compile-resources res/gtk4/linux.gresources.xml --target=res/resources.gresources
@@ -43,20 +44,18 @@ Start-Process -FilePath .\target\release\smudge-timer.exe
 
 
 fn main() {
+    unsafe { load_settings(); }
+
     thread::spawn(|| {
         if let Err(err) = listen(|event| {
             match event.event_type {
-                EventType::KeyPress(_) => {}
                 EventType::KeyRelease(key) => {
                     if key == Key::BackSlash {
                         exit(0);
                     }
                     send_event(Box::new(ButtonEvent::new(key)))
                 }
-                EventType::ButtonPress(_) => {}
-                EventType::ButtonRelease(_) => {}
-                EventType::MouseMove { .. } => {}
-                EventType::Wheel { .. } => {}
+                _ => {}
             }
         }) {
             eprintln!("Error: {:?}", err);
