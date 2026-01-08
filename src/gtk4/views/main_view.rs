@@ -93,14 +93,13 @@ impl MainView {
                 Continue
             }
         }, false)));
-        //resume_event("timer_event", timer_event_listener.as_ref().unwrap().borrow().clone());
 
         const SPEEDS: [f64; 5] = [
-            0.5,
-            0.75,
-            1.0,
+            1.50,
             1.25,
-            1.50
+            1.0,
+            0.75,
+            0.5
         ];
 
         let button_event_listener = Some(RefCell::new(register_event("button_event", {
@@ -165,7 +164,6 @@ impl MainView {
                 Continue
             }
         }, false)));
-        //resume_event("button_event", button_event_listener.as_ref().unwrap().borrow().clone());
 
         Self {
             root,
