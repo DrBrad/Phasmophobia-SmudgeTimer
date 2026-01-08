@@ -1,9 +1,10 @@
 use std::cell::Cell;
 use std::rc::Rc;
 use glib::Propagation;
-use gtk4::{gdk, style_context_add_provider_for_display, Builder, Button, ComboBoxText, CssProvider, Paned, ScrolledWindow, Window};
+use gtk4::{gdk, style_context_add_provider_for_display, Builder, Button, ComboBoxText, CssProvider, Paned, ScrolledWindow, Switch, Window};
+use gtk4::ffi::GtkSwitch;
 use gtk4::prelude::{ButtonExt, RangeExt, ScaleExt, WidgetExt};
-use crate::settings::{save_settings, verify_key_bind, GHOST_SPEED, KEY_MS, KEY_OBAMBO_RESET, KEY_OBAMBO_START, KEY_RESET, KEY_TIMER_RESET, KEY_TIMER_START};
+use crate::settings::{save_settings, verify_key_bind, BLOOD_MOON, GHOST_SPEED, KEY_MS, KEY_OBAMBO_RESET, KEY_OBAMBO_START, KEY_RESET, KEY_TIMER_RESET, KEY_TIMER_START};
 use crate::utils::keys::gtk4_key_to_key;
 
 pub struct ConsoleView {
@@ -43,6 +44,16 @@ impl ConsoleView {
             unsafe { GHOST_SPEED = idx; }
             SPEED_LABELS[idx].to_string()
         });
+
+        let blood_moon_swc: Switch = builder
+            .object("blood_moon_swc")
+            .expect("Couldn't find 'blood_moon_swc' in console_view.ui");
+
+        blood_moon_swc.connect_state_set(|_sw, state| {
+            unsafe { BLOOD_MOON = state; }
+            Propagation::Proceed
+        });
+
 
         let timer_start_btn: Button = builder
             .object("timer_start_btn")

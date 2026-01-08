@@ -19,7 +19,7 @@ use crate::bus::event_bus::EventPropagation::Continue;
 use crate::bus::events::button_event::ButtonEvent;
 use crate::bus::events::timer_event::TimerEvent;
 use crate::gtk4::windows::console_window::ConsoleWindow;
-use crate::settings::{GHOST_SPEED, KEY_MS, KEY_OBAMBO_RESET, KEY_OBAMBO_START, KEY_RESET, KEY_TIMER_RESET, KEY_TIMER_START};
+use crate::settings::{BLOOD_MOON, GHOST_SPEED, KEY_MS, KEY_OBAMBO_RESET, KEY_OBAMBO_START, KEY_RESET, KEY_TIMER_RESET, KEY_TIMER_START};
 use crate::utils::bpm::TapState;
 
 pub struct MainView {
@@ -151,8 +151,11 @@ impl MainView {
                         bps.set_label("0.00 m/s");
                     }
                     k if k == KEY_MS => {
-                        if let Some((bpm, ms)) = tap_state.borrow_mut().tap_and_compute() {
-                            bps.set_label(&format!("{:.2} m/s", ms*SPEEDS[GHOST_SPEED]));
+                        if let Some((bpm, mut ms)) = tap_state.borrow_mut().tap_and_compute() {
+                            if BLOOD_MOON {
+                                ms = ms*SPEEDS[GHOST_SPEED];
+                            }
+                            bps.set_label(&format!("{:.2} m/s", ms));
 
                         } else {
                             bps.set_label("0.00 m/s");

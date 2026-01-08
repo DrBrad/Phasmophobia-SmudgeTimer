@@ -119,7 +119,7 @@
                                 </child>
 
                                 <child>
-                                    <object class="GtkSwitch" id="xxxx">
+                                    <object class="GtkSwitch" id="blood_moon_swc">
                                         <property name="name">key_bind</property>
                                         <property name="visible">True</property>
                                         <property name="valign">center</property>

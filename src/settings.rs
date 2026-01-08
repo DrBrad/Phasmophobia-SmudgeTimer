@@ -4,6 +4,7 @@ use rdev::Key;
 use crate::utils::keys::str_to_key;
 
 pub static mut GHOST_SPEED: usize = 2;
+pub static mut BLOOD_MOON: bool = false;
 pub static mut KEY_TIMER_START: Key = Key::Num1;
 pub static mut KEY_TIMER_RESET: Key = Key::Num2;
 pub static mut KEY_OBAMBO_START: Key = Key::Num3;

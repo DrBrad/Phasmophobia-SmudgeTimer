@@ -26,7 +26,7 @@
 }
 
 scale trough {
-    background-color: @text_primary;
+    background-color: @text_secondary;
     background-image: none;
 }
 
@@ -41,3 +41,17 @@ scale trough highlight {
     opacity: 1.0;
 }
 
+
+switch slider {
+    background-color: @primary;
+    background-image: none;
+}
+
+switch {
+    background-color: @text_secondary;
+    background-image: none;
+}
+
+switch:checked {
+    background-color: @primary;
+}
