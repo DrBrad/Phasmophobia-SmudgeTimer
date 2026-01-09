@@ -15,6 +15,7 @@ use crate::bus::events::inter::event::Event;
 use crate::bus::events::timer_event::TimerEvent;
 use crate::gtk4::app::App;
 use crate::settings::load_settings;
+
 //export GTK_DEBUG=interactive
 //$env:GTK_DEBUG="interactive"
 
