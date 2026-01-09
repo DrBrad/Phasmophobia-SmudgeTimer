@@ -5,7 +5,6 @@ mod bus;
 mod utils;
 mod settings;
 
-use std::path::PathBuf;
 use std::process::exit;
 use std::thread;
 use std::time::{Duration, SystemTime, UNIX_EPOCH};
