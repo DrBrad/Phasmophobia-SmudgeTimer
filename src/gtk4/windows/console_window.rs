@@ -18,6 +18,7 @@ impl ConsoleWindow {
 
         window.set_child(Some(&view.root));
         window.show();
+        window.present();
 
         Self {
             window

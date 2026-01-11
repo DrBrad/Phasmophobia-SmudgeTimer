@@ -67,7 +67,7 @@ impl MainWindow {
 
         window.show();
 
-        window.present(); // must be realized first
+        window.present();
         #[cfg(windows)]
         {
             force_always_on_top_win32(window.as_ref());
