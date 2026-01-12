@@ -95,11 +95,11 @@ impl MainView {
         }, false)));
 
         const SPEEDS: [f64; 5] = [
-            1.50,
-            1.25,
-            1.0,
+            0.5,
             0.75,
-            0.5
+            1.0,
+            1.25,
+            1.50
         ];
 
         let button_event_listener = Some(RefCell::new(register_event("button_event", {
@@ -152,10 +152,10 @@ impl MainView {
                     }
                     k if k == KEY_MS => {
                         if let Some((bpm, mut ms)) = tap_state.borrow_mut().tap_and_compute() {
-                            ms = ms*SPEEDS[GHOST_SPEED];
+                            ms = ms/SPEEDS[GHOST_SPEED];
 
                             if BLOOD_MOON {
-                                ms = ms*0.85;
+                                ms = ms/1.15;
                             }
 
                             bps.set_label(&format!("{:.2} m/s", ms));
